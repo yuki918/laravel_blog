@@ -1,0 +1,55 @@
+# docker-composeのバージョン
+version: '3'
+
+# コンテナ定義
+services:
+  # webサーバー（nginx）
+  nginx:
+    # コンテナ名
+    container_name: "nginx"
+    # コンテナの作成に使用するDockerfileのパス
+    build:
+      context: ./docker/nginx
+    # phpの次に起動させる
+    depends_on:
+      - php
+    # ホスト側のポート:コンテナ側のポート
+    ports:
+      - 80:80
+    volumes:
+      - ./:/src
+      - ./docker/nginx/default.conf:/etc/nginx/default.conf
+
+  # PHPサーバー
+  php:
+    container_name: "php"
+    build:
+      context: ./docker/php
+    depends_on:
+      - mysql
+    volumes:
+      - ./:/src
+      - /src/laravel/node_modules
+      - /src/laravel/vendor
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+
+  # MySQLサーバー
+  mysql:
+    image: mysql:8.0.33
+    command: --max_allowed_packet=32505856
+    container_name: "mysql"
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=laravel-blog
+      - MYSQL_USER=laravel-blog
+      - MYSQL_PASSWORD=root
+    ports:
+      - 3306:3306
+
+  redis:
+    image: redis:alpine
+    container_name: "redis"
+    ports:
+      - 16379:6379
