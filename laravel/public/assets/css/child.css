@@ -1,0 +1,261 @@
+@charset "UTF-8";
+
+
+/************************************
+** 子テーマ用のスタイルを書く
+************************************/
+/*必要ならばここにコードを書く*/
+a.download-button small{
+  display: none;
+}
+
+/************************************
+** wpForoソースコード用
+************************************/
+#wpforo-wrap pre.hljs{
+  background-color: #23241f;
+  color: #eee;
+}
+
+#wpforo_widget_search-3{
+  margin-bottom: 0;
+
+}
+#wpforo_widget_search-3 .wpforo-widget-content{
+  padding-bottom: 0 !important;
+}
+/************************************
+** wpForoリンク
+************************************/
+#wpforo-wrap .wpforo-post-content a,
+#wpforo-wrap .wpforo-post-content a.wpforo-auto-embeded-link,
+#wpforo-wrap .wpforo-post-content a:link{
+  color: blue !important;
+  text-decoration: underline;
+}
+#wpforo-wrap .wpforo-post-content a:hover,
+#wpforo-wrap .wpforo-post-content a.wpforo-auto-embeded-link:hover,
+#wpforo-wrap .wpforo-post-content a:link:hover{
+  color: #e53900 !important;
+}
+div#wpforo-wrap .wpforo-post .wpf-right blockquote {
+  background-color: #eff6fa;
+  border: 1px solid #cccdce;
+}
+div#wpforo-wrap .wpforo-post .wpf-right blockquote::before,
+div#wpforo-wrap .wpforo-post .wpf-right blockquote::after{
+  display: none;
+}
+
+/************************************
+** レスポンシブデザイン用のメディアクエリ
+************************************/
+/*1240px以下*/
+@media screen and (max-width: 1240px){
+  /*必要ならばここにコードを書く*/
+}
+
+/*1030px以下*/
+@media screen and (max-width: 1030px){
+  /*必要ならばここにコードを書く*/
+}
+
+/*768px以下*/
+@media screen and (max-width: 768px){
+  /*必要ならばここにコードを書く*/
+}
+
+/*480px以下*/
+@media screen and (max-width: 480px){
+  /*必要ならばここにコードを書く*/
+}
+
+/*wpForo用のサイトボタンスタイル*/
+.wpf-member-site{
+  display: block !important;
+  margin: 2px auto !important;
+}
+#wpforo-wrap .wpf-member-site-link{
+  color: blue !important;
+  text-decoration: underline !important;
+  font-size: 14px !important;
+/*
+  padding: 0 15px;
+  color: #fff !important;
+  border: 1px solid #333;
+  background-color: #093d86;
+  display: block;
+  border-radius: 2px;
+*/
+}
+/*
+#wpforo-wrap .wpf-member-site-link::before{
+  font-family: FontAwesome;
+  content: '\f015';
+}
+*/
+#wpforo-wrap .wpf-member-site-link:hover{
+    color: red !important;
+/*
+  background-color: #fff;
+  color: #333 !important;
+*/
+}
+
+.micro-over{
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: -14px;
+}
+
+#tinymce blockquote::before {
+    display: none;
+}
+
+.wpforo-attached-file{
+  position: relative;
+}
+
+.wpforo-attached-file .paperclip{
+  position: absolute;
+  font-size: 40px !important;
+  opacity: 0.6;
+  top: -12px;
+  left: -13px;
+  color: #3f7796 !important;
+}
+
+.wpf-profile-section-body .wpf-statbox:nth-child(3),
+.wpf-profile-section-body .wpf-statbox:nth-child(4),
+.wpf-profile-section-body .wpf-statbox:nth-child(5),
+.wpf-profile-section-body .wpf-statbox:nth-child(9){
+  display: none;
+}
+
+div#wpforo-wrap pre {
+  font-family: Consolas, Menlo, Courier, monospace;
+}
+/*
+#wpf-form-wrapper,
+#add_wpftopic,
+#respond,
+.reply,
+.comment-form{
+  display: none;
+} */
+
+div#wpforo #wpforo-wrap pre {
+  background: #333;
+  color: #eee;
+  font-size: 16px;
+}
+
+.wpf-field-name-email .wpf-label::after{
+  margin-left: 6px;
+  content: "*";
+  color: #FF812D;
+}
+
+.wpf-field-name-name .wpf-label::after {
+  margin-left: 6px;
+  content: "*";
+  color: #FF812D;
+}
+
+#wpf-forum-14,
+#wpf-forum-15,
+#wpf-forum-16{
+  display: none;
+}
+
+/*ダウンロードプラグインのリンクボタン*/
+/*
+.download-button:hover {
+  text-decoration: none;
+  opacity: 0.8;
+  color: #fff;
+}
+
+.download-button {
+  background-color: #1e50a2;
+  border-radius: 4px;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+} */
+
+.ranking-item-4,
+.ranking-item-5{
+  display: none;
+}
+
+/* アピールエリア */
+.appeal-content {
+	max-width: 950px;
+}
+
+.appeal-title {
+	margin-bottom: 0.5em;
+	font-size : 1.5em;
+}
+.appeal-message {
+	font-size:0.95em;
+	margin-bottom: 1.5em;
+}
+
+.appeal-button-wrapper {
+	display: flex;
+	justify-content: center ;
+}
+
+.appeal-button {
+	display: block;
+	font-size : 0.8em;
+	padding: 15px 30px;
+	width : 400px;
+}
+
+.appeal-button-main-txt {
+	display: block;
+	font-size : 1.3em;
+}
+
+.appeal-button-sub {
+ 	background-color: #fff !important;
+	border : 1px #0095d9 solid;
+	color : #0095d9;
+}
+
+.appeal-button-sub:hover {
+  color: #0095d9;
+}
+
+/*834px以下*/
+@media screen and (max-width: 950px) {
+
+	.appeal-content {
+		max-width: 100%;
+	}
+	
+	.appeal-title {
+		margin-bottom: 0.75em;
+		font-size : 1.1em;
+	}
+	.appeal-message {
+		font-size:0.88em;
+		margin-bottom: 1.75m;
+	}
+	.appeal-button-wrapper {
+		flex-flow: column;
+	}
+	
+	.appeal-button {
+		margin : 0 auto 15px;
+		width : 95%;
+	}
+}
+
+#wpforo #wpforo-wrap :is(ol, ul){
+  margin-bottom: 1em !important;
+}

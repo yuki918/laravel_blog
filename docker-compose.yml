@@ -43,8 +43,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=laravel-blog
-      - MYSQL_USER=laravel-blog
-      - MYSQL_PASSWORD=root
+      - MYSQL_USER=laravel
+      - MYSQL_PASSWORD=password
     ports:
       - 3306:3306
 

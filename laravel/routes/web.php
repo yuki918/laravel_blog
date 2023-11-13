@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('/')->group(function() {
+    Route::get('/', [ArticleController::class , 'index'] )->name("article.index");
+    Route::get('article/{item}', [ArticleController::class, 'article'])->name('article.article');
+});
+Route::prefix('contact')->group(function() {
+    Route::get('/', [ContactController::class , 'index'] )->name("contact.index");
+    Route::post('confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
+    Route::post('thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
 });
