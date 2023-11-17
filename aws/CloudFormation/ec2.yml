@@ -1,0 +1,150 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: "template on EC2"
+
+Parameters:
+  ProjectName:
+    Type: String
+    Default: larablog
+
+  VpcCidrBlock:
+    Type: String
+    Default: "10.0.0.0/16"
+  PublicSubnetCidrBlock1:
+    Type: String
+    Default: "10.0.1.0/24"
+  PublicSubnetCidrBlock2:
+    Type: String
+    Default: "10.0.2.0/24"
+  PrivateSubnetCidrBlock1:
+    Type: String
+    Default: "10.0.3.0/24"
+  PrivateSubnetCidrBlock2:
+    Type: String
+    Default: "10.0.4.0/24"
+
+  Ec2ImageId:
+    Type: String
+    Default: ami-0d7bfdca2fa8d3cc4
+
+Resources:
+  # VPC
+  MyVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref VpcCidrBlock
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: !Sub "${ProjectName}-VPC"
+  # サブネット
+  MyPublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: !Ref PublicSubnetCidrBlock1
+      AvailabilityZone: "ap-northeast-3a"
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: !Sub "${ProjectName}-PublicSubnet1"
+  MyPublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: !Ref PublicSubnetCidrBlock2
+      AvailabilityZone: "ap-northeast-3c"
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: !Sub "${ProjectName}-PublicSubnet2"
+  MyPrivateSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: !Ref PrivateSubnetCidrBlock1
+      AvailabilityZone: "ap-northeast-3a"
+      Tags:
+        - Key: Name
+          Value: !Sub "${ProjectName}-PrivateSubnet1"
+  MyPrivateSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: !Ref PrivateSubnetCidrBlock2
+      AvailabilityZone: "ap-northeast-3c"
+      Tags:
+        - Key: Name
+          Value: !Sub "${ProjectName}-PrivateSubnet2"
+
+  # IGW設定
+  MyInternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: !Sub "${ProjectName}-IGW"
+  MyVPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref MyVPC
+      InternetGatewayId: !Ref MyInternetGateway
+
+  # ネットワーク設定/Public
+  MyPublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref MyVPC
+      Tags:
+        - Key: Name
+          Value: !Sub "${ProjectName}-PublicRouteTable"
+  MyPublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: MyInternetGateway
+    Properties:
+      RouteTableId: !Ref MyPublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref MyInternetGateway
+  PublicSubnetRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref MyPublicSubnet1
+      RouteTableId: !Ref MyPublicRouteTable
+  
+  MySecurityGroupEC2:
+    Type: AWS::EC2::SecurityGroup
+    DependsOn: MyVPC
+    Properties:
+      GroupName: MySecurityGroup2
+      GroupDescription: For EC2
+      VpcId: !Ref MyVPC
+      Tags:
+        - Key: Name
+          Value: !Sub "${ProjectName}-SecurityGroup-ec2"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+  
+  # EC2定義
+  NewKeyPair:
+    Type: AWS::EC2::KeyPair
+    Properties:
+      KeyName: !Sub "${ProjectName}-key"
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref Ec2ImageId
+      KeyName: !Ref NewKeyPair
+      InstanceType: t3.micro
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: true
+          DeviceIndex: 0
+          SubnetId: !Ref MyPublicSubnet1
+          GroupSet:
+            - !Ref MySecurityGroupEC2
+      Tags:
+        - Key: Name
+          Value: !Sub "${ProjectName}-EC2"
