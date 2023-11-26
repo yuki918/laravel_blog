@@ -127,6 +127,10 @@ Resources:
           FromPort: 22
           ToPort: 22
           CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
   
   # EC2定義
   NewKeyPair:
@@ -138,7 +142,7 @@ Resources:
     Properties:
       ImageId: !Ref Ec2ImageId
       KeyName: !Ref NewKeyPair
-      InstanceType: t3.micro
+      InstanceType: t2.micro
       NetworkInterfaces:
         - AssociatePublicIpAddress: true
           DeviceIndex: 0
