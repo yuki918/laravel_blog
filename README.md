@@ -31,16 +31,18 @@ WordPressと同様のシステムを開発したく、下記の機能を実装�
 
 
 * __ディレクトリ構造__
-    【ルートディレクトリ】
-    ├─ aws / CloudFormation
-    │   └─ ec2.yml
-    ├─ docker
-    │   └─ mysql
-    │   └─ nginx
-    │   └─ php
-    ├─ Laravel
-    │   └─ 【Laravelのパッケージ】
-    └─ docker-compose.yml
+<pre>
+【ルートディレクトリ】
+├─ aws / CloudFormation
+│   └─ ec2.yml
+├─ docker
+│   └─ mysql
+│   └─ nginx
+│   └─ php
+├─ Laravel
+│   └─ 【Laravelのパッケージ】
+└─ docker-compose.yml
+</pre>
 
 * __フロントエンド__
   * HTML
@@ -68,22 +70,22 @@ WordPressと同様のシステムを開発したく、下記の機能を実装�
 
 | トップ【ユーザー】 | 記事詳細【ユーザー】 |
 | ---- | ---- |
-| ![トップ【ユーザー】](/data/info01.png) | ![記事詳細【ユーザー】](/data/info02.png) |
+| ![トップ【ユーザー】](/data/img/info01.png) | ![記事詳細【ユーザー】](/data/img/info02.png) |
 | トップページは記事の一覧ページです。 | 記事の詳細ページです。 |
 
 | お問い合わせ【ユーザー】 | 自動返信【管理者とユーザー】 |
 | ---- | ---- |
-| ![お問い合わせ【ユーザー】](/data/info03.png) | ![自動返信【管理者とユーザー】](/data/info09.png) |
+| ![お問い合わせ【ユーザー】](/data/img/info03.png) | ![自動返信【管理者とユーザー】](/data/img/info04.png) |
 | 確認と完了ページ付きお問い合わせページです。 | 管理者とユーザー宛てへの自動返信です。 |
 
 | ログイン【管理者】 | 記事の作成【管理者】 |
 | ---- | ---- |
-| ![ログイン【管理者】](/data/info04.png) | ![記事の作成](/data/info05.png) |
+| ![ログイン【管理者】](/data/img/info05.png) | ![記事の作成](/data/img/info06.png) |
 | Laravel-adminを使用した管理画面です。 | 記事の作成・編集できるページです。 |
 
 | お問い合わせ確認【管理者】 | カテゴリーの作成【管理者】 |
 | ---- | ---- |
-| ![記事の作成](/data/info07.png) | ![カテゴリーの作成](/data/info06.png) |
+| ![記事の作成](/data/img/info07.png) | ![カテゴリーの作成](/data/img/info08.png) |
 | お問い合わせ情報を確認できるページです。 | 記事のカテゴリーを作成・編集できるページです。 |
 
 ## インフラ構成図
@@ -92,7 +94,7 @@ WordPressと同様のシステムを開発したく、下記の機能を実装�
 
 ## ER図
 
-![AWS_Diagram](https://user-images.githubusercontent.com/58071320/98756993-eed4d600-240e-11eb-8a3a-141290e77fc9.png)
+![ER図](/data/larablog.drawio.png)
 
 ## 機能一覧
 
