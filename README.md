@@ -31,7 +31,7 @@ WordPressと同様のシステムを開発したく、下記の機能を実装�
 
 
 * __ディレクトリ構造__
-<pre>
+```
 【ルートディレクトリ】
 ├─ aws / CloudFormation
 │   └─ ec2.yml
@@ -42,7 +42,7 @@ WordPressと同様のシステムを開発したく、下記の機能を実装�
 ├─ Laravel
 │   └─ 【Laravelのパッケージ】
 └─ docker-compose.yml
-</pre>
+```
 
 * __フロントエンド__
   * HTML
@@ -59,7 +59,7 @@ WordPressと同様のシステムを開発したく、下記の機能を実装�
 
 * __インフラ__
   * Docker 24.0.5
-  * AWS(CloudFormation/VPC/EC2/RDS/Route53/ACM)
+  * AWS(CloudFormation/VPC/EC2/RDS/Route53/ALB/ACM)
 
 * __その他使用ツール__
   * Visual Studio Code
