@@ -48,7 +48,7 @@ WordPressと同様のシステムを開発したく、主に下記の機能を�
 
 * __フロントエンド__
   * HTML
-  * CSS/SASS
+  * CSS／SASS
   * jQuery
 
 * __バックエンド__
@@ -59,11 +59,11 @@ WordPressと同様のシステムを開発したく、主に下記の機能を�
 
 * __インフラ__
   * Docker 24.0.5
-  * AWS（CloudFormation/VPC/EC2/RDS/Route53/ALB/ACM）
+  * AWS（CloudFormation／VPC／EC2／RDS／Route53／ALB／ACM）
 
 * __その他使用ツール__
   * Visual Studio Code
-  * Git/GitHub
+  * Git／GitHub
   * draw.io
 
 ## アプリのイメージ
