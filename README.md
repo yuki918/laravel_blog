@@ -90,7 +90,7 @@ WordPressと同様のシステムを開発したく、主には下記の機能�
 
 ## インフラ構成図
 
-![AWS_Diagram](https://user-images.githubusercontent.com/58071320/98756993-eed4d600-240e-11eb-8a3a-141290e77fc9.png)
+![AWS_Diagram](/data/infrastructure.drawio.png)
 
 ## ER図
 
