@@ -16,4 +16,6 @@ Route::group([
     $router->resource('blog/articles', ArticleController::class);
     $router->resource('blog/categories', ArticleCategoryController::class);
     $router->resource('contact', ContactController::class);
+    $router->resource('users', UserController::class);
+    $router->resource('comments', CommentController::class);
 });

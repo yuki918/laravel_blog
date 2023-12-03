@@ -5,34 +5,44 @@
 @endsection
 
 @section('main')
-  <div id="content" class="content">
-    <div id="content-in" class="content-in wrap mt-4">
-      <main id="main" class="main">
-        <form method="POST" action="{{ route('contact.confirm') }}">
-          @csrf
-          <div class="bg-white flex flex-col md:ml-auto w-full">
-            <h3 class="font-bold text-2xl mb-4">お問い合わせ</h3>
-            <p class="leading-relaxed mb-5 text-red-600 font-bold">※全て必須項目です。</p>
-            <div class="relative mb-4">
-              <label for="name" class="leading-7 text-sm text-gray-600">お名前</label>
-              <input type="text" id="name" name="name" value="{{ old('name') }}" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-              @if ($errors->has('name')) <p class="error-message text-red-600 font-bold text-sm">{{ $errors->first('name') }}</p> @endif
-            </div>
-            <div class="relative mb-4">
-              <label for="email" class="leading-7 text-sm text-gray-600">メールアドレス</label>
-              <input type="email" id="email" name="email" value="{{ old('email') }}" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-              @if ($errors->has('email')) <p class="error-message text-red-600 font-bold text-sm">{{ $errors->first('email') }}</p> @endif
-            </div>
-            <div class="relative mb-4">
-              <label for="content" class="leading-7 text-sm text-gray-600">お問い合わせ内容</label>
-              <textarea id="content" name="content" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-40 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out">{{ old('content') }}</textarea>
-              @if ($errors->has('content')) <p class="error-message text-red-600 font-bold text-sm">{{ $errors->first('content') }}</p> @endif
-            </div>
-            <button type="submit" class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg w-40 m-auto mt-8">確認画面へ</button>
-          </div>
-        </form>
-      </main>
-      @include('layouts.aside', ['categories' => $categories, 'new' => $new])
+  <main class="main">
+    <div class="mv under">
+      <h1 class="mv__title">
+        <p class="sub">お問い合わせ</p>
+      </h1>
     </div>
-  </div>
+    <div class="container">
+      <div class="wrapper">
+        <div class="content">
+          <div class="commonContent commonForm">
+            <p class="titleType01">お問い合わせ</p>
+            <form method="POST" action="{{ route('contact.confirm') }}">
+              @csrf
+              <ul class="list">
+                <li class="item">
+                  <label for="name">お名前</label>
+                  <input type="text" id="name" name="name" value="{{ old('name') }}" required>
+                  @if ($errors->has('name')) <p class="error-message">{{ $errors->first('name') }}</p> @endif
+                </li>
+                <li class="item">
+                  <label for="email">メールアドレス</label>
+                  <input type="email" id="email" name="email" value="{{ old('email') }}" required>
+                  @if ($errors->has('email')) <p class="error-message">{{ $errors->first('email') }}</p> @endif
+                </li>
+                <li class="item">
+                  <label for="content">お問い合わせ内容</label>
+                  <textarea id="content" name="content" required>{{ old('content') }}</textarea>
+                  @if ($errors->has('content')) <p class="error-message">{{ $errors->first('content') }}</p> @endif
+                </li>
+              </ul>
+              <div class="buttons">
+                <button type="submit" class="submit button">確認する</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        @include('layouts.aside', ['categories' => $categories, 'new' => $new])
+      </div>
+    </div>
+  </main>
 @endsection

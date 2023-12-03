@@ -14,11 +14,6 @@ class ArticleCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        // ArticleCategory::create(
-        //     [
-        //         "name" => "未分類",
-        //     ],
-        // );
         DB::table('article_categories')->insert([
             [
                 'name' => '未分類',

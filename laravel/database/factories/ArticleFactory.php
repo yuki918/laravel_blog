@@ -22,6 +22,7 @@ class ArticleFactory extends Factory
             'thumbnail_path' => fake()->imageUrl(),
             // 'admin_user_id' => 1,
             'article_category_id' => 1,
+            'is_user'   => fake()->numberBetween(0, 1),
             'is_pickup' => fake()->numberBetween(0, 1),
             'is_public' => fake()->numberBetween(0, 1),
         ];
