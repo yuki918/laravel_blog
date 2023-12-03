@@ -1,8 +1,6 @@
 @extends('layouts.base')
 
-@section('title')
-  <title>お問い合わせ | {{ config('app.name', 'Laravel') }}</title>
-@endsection
+@section('title', 'お問い合わせ')
 
 @section('main')
   <main class="main">

@@ -1,8 +1,6 @@
 @extends('layouts.base')
 
-@section('title')
-  <title>コメントした記事一覧 | マイページ | {{ config('app.name', 'Laravel') }}</title>
-@endsection
+@section('title', 'コメントした記事一覧 | マイページ')
 
 @section('main')
   <main class="main">

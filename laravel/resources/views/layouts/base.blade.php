@@ -12,16 +12,24 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
-        @yield('title')
-        <link rel="canonical" href="URL">
-        <meta name="description" content="サイト説明文">
-        <meta property="og:title" content="タイトル" />
+        @php $page_url   = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; @endphp
+        @hasSection('title')
+          <title>@yield('title') | {{ config('app.name') }}</title>
+          <meta name="description" content="@yield('title') | 目標に向けて自己成長をするためのブログです。">
+          <meta property="og:title" content="@yield('title') | {{ config('app.name') }}" />
+          <meta property="og:description" content="@yield('title') | 目標に向けて自己成長をするためのブログです。" />
+        @else
+          <title>{{ config('app.name') }}</title>
+          <meta name="description" content="目標に向けて自己成長をするためのブログです。">
+          <meta property="og:title" content="{{ config('app.name') }}" />
+          <meta property="og:description" content="目標に向けて自己成長をするためのブログです。" />
+        @endif
+        <link rel="canonical" href="{{ $page_url }}">
         <meta property="og:type" content="website" />
-        <meta property="og:description" content="サイト説明文" />
-        <meta property="og:url" content="URL" />
-        <meta property="og:image" content="URL" />
+        <meta property="og:url" content="{{ $page_url }}" />
+        <meta property="og:image" content="{{ asset('assets/img/ogp.png') }}" />
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:image" content="URL">
+        <meta name="twitter:image" content="{{ asset('assets/img/ogp.png') }}">
     </head>
     <body>
         <div id="wrapper">

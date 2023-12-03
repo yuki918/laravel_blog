@@ -1,9 +1,5 @@
 @extends('layouts.base')
 
-@section('title')
-  <title>{{ config('app.name', 'Laravel') }}</title>
-@endsection
-
 @section('main')
   <main class="main">
     <div class="mv">

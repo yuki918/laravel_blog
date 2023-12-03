@@ -1,6 +1,6 @@
 <header class="header">
   <div class="wrapper">
-    <h1 class="header__logo"><a href="/">プログラミングブログ</a></h1>
+    <h1 class="header__logo"><a href="/">{{ config('app.name') }}</a></h1>
     <nav class="gnav">
       <ul class="gnav__list">
         <li class="gnav__item">
