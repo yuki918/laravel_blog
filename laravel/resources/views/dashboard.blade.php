@@ -1,8 +1,6 @@
 @extends('layouts.base')
 
-@section('title')
-  <title>お気に入り | マイページ | {{ config('app.name', 'Laravel') }}</title>
-@endsection
+@section('title', 'お気に入り一覧 | マイページ')
 
 @section('main')
   <main class="main">

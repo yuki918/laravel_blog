@@ -1,8 +1,6 @@
 @extends('layouts.base')
 
-@section('title')
-  <title>{{ $article->title }} | {{ config('app.name', 'Laravel') }}</title>
-@endsection
+@section('title', $article->title)
 
 @php $title = urlencode($article->title) @endphp
 

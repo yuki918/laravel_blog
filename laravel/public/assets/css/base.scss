@@ -1106,7 +1106,8 @@ th {
         }
         .time {
           display: flex;
-          gap: 1rem;
+          flex-wrap: wrap;
+          gap: 0 1rem;
           color: #808080;
           font-size: .85em;
           margin-top: 0.4em;
