@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+$siteColor: #29abe2;
+$textColor: #000;
+$font: 'Noto Serif JP', serif;
+$fontShippori: 'Shippori Mincho', serif;
+$pcFont: 16;
+$pcCotent: 1400;
+$spFont: 28;
+$bp: 768;
+
+@mixin pc() {
+  @media print, screen and (min-width: #{$bp}px) {
+    @content;
+  }
+}
+@mixin sp() {
+  @media only screen and (max-width: #{$bp - 1}px) {
+    @content;
+  }
+}
+@mixin media($min , $max:null) {
+  @if $max != null {
+    @media print, screen and (min-width: #{$min}px) and (max-width: #{$max}px) {
+      @content;
+    }
+  }
+  @else {
+    @media print, screen and (min-width: #{$min}px) {
+      @content;
+    }
+  }
+}
+@mixin object-fit($w:100%, $h:100%, $p:cover, $opx:50%, $opy:50%) {
+  object-fit: $p;
+  object-position: $opx $opy;
+  height: $h;
+  width: $w;
+}

@@ -20,6 +20,7 @@ return new class extends Migration
             // $table->unsignedBigInteger('admin_user_id');
             // $table->foreign('admin_user_id')->references('id')->on('admin_users');
             // $table->foreignId('admin_user_id')->constrained('admin_users'); // 記事を書いたユーザーのID
+            $table->boolean('is_user'); // ログインユーザー限定記事
             $table->boolean('is_pickup'); // ピックアップ記事
             $table->boolean('is_public'); // 公開か非公開
             $table->timestamps();

@@ -130,7 +130,7 @@ class AdminTablesSeeder extends Seeder
                 'parent_id' => 0,
                 'order'     => 8,
                 'title'     => 'ブログ',
-                'icon'      => 'fa-tasks',
+                'icon'      => 'fa-bold',
                 'uri'       => '',
             ],
             [
@@ -153,6 +153,20 @@ class AdminTablesSeeder extends Seeder
                 'title'     => 'お問い合わせ',
                 'icon'      => 'fa-send-o',
                 'uri'       => 'contact',
+            ],
+            [
+                'parent_id' => 0,
+                'order'     => 12,
+                'title'     => 'ユーザー',
+                'icon'      => 'fa-users',
+                'uri'       => 'users',
+            ],
+            [
+                'parent_id' => 0,
+                'order'     => 13,
+                'title'     => 'コメント',
+                'icon'      => 'fa-tasks',
+                'uri'       => 'comments',
             ],
         ]);
 

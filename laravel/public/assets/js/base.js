@@ -127,12 +127,12 @@ function scrollShow() {
 
 // swiper
 function swiper() {
-  var pickuplider = new Swiper('.pickup__slider .swiper-container', {
-    slidesPerView: 2,
-    spaceBetween: 10,
+  var pickupSlide = new Swiper('.pickup__slide', {
     loop: true,
     speed: 1500,
     loopAdditionalSlides: 1,
+    slidesPerView: 2,
+    spaceBetween: 15,
     autoplay: {
       delay: 4000,
       stopOnLastSlide: false,
@@ -143,29 +143,49 @@ function swiper() {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
     },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
     breakpoints: {
-      750: {
-        slidesPerView: 6,
+      767: {
+        slidesPerView: 5,
       },
     },
   });
 }
 
-const selector = '.copy-button';//clipboardで使う要素を指定
-$(selector).click(function(event){
-  //クリック動作をキャンセル
-  event.preventDefault();
-  //クリップボード動作
-  navigator.clipboard.writeText($(selector).attr('data-clipboard-text')).then(
-    () => {
-      $('.copy-info').fadeIn(500).delay(1000).fadeOut(500);
+// コピーボタン
+function copyButton() {
+  const selector = '.copyButton';
+  $(selector).click(function(event){
+    event.preventDefault();
+    navigator.clipboard.writeText($(selector).attr('data-clipboard-text')).then(
+      () => {
+        $('.copyInfo').fadeIn(500).delay(1000).fadeOut(500);
+      });
+  });
+}
+
+function likeButton() {
+  $('.like-toggle').on('click', function () {
+    let $this = $(this);
+    let likeArticleId = $this.data('article-id');
+    $.ajax({
+      headers: {
+        'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+      },
+      url: '/like',
+      method: 'POST',
+      data: { 'article_id': likeArticleId },
+    })
+    //通信成功した時の処理
+    .done(function (data) {
+      $this.toggleClass('liked');
+      console.log('success');
+    })
+    //通信失敗した時の処理
+    .fail(function () {
+      console.log('fail');
     });
-});
+  });
+}
 
 // init
 $(function() {
@@ -173,7 +193,9 @@ $(function() {
   pageScroll();
   scrollProcess();
   hamburgerMenu();
+  copyButton();
   swiper();
+  likeButton();
   $(window).on("resize orientationchange", function () {
     deviceJudge();
   });

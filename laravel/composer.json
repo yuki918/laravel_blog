@@ -15,7 +15,9 @@
         "laravel/tinker": "^2.8"
     },
     "require-dev": {
+        "askdkc/breezejp": "^1.7",
         "fakerphp/faker": "^1.9.1",
+        "laravel/breeze": "^1.26",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
@@ -64,7 +66,7 @@
             "php-http/discovery": true
         },
         "platform": {
-            "php": "7.4.33"
+            "php": "8.1"
         }
     },
     "minimum-stability": "stable",

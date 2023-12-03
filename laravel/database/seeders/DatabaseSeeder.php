@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(AdminTablesSeeder::class);
         $this->call(ArticleCategorySeeder::class);
-        Article::factory(10)->create();
+        Article::factory(50)->create();
+        $this->call(UserSeeder::class);
+        $this->call(CommentSeeder::class);
     }
 }
