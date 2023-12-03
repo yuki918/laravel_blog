@@ -1254,6 +1254,12 @@ th {
   width: 100%;
   margin-top: 1em;
 }
+.acount-info .commonContent .account-info-delete > div {
+  display: block !important;
+}
+.acount-info .commonContent .account-info-delete > div > div:nth-child(2) {
+  display: block !important;
+}
 
 .footer {
   background-color: #fff;

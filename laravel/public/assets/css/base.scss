@@ -1181,6 +1181,12 @@ th {
         width: 100%;
         margin-top: 1em;
       }
+      & > div {
+        display: block !important;
+        & > div:nth-child(2) {
+          display: block !important;
+        }
+      }
     }
   }
 }
