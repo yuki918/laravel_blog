@@ -1,66 +1,134 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## アプリケーションについて
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+名前：プログラミングブログ<br>
+URL：https://lara-blog.portfolio-nakatani.com/
 
-## About Laravel
+## 概要
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+WordPressの様な複数人でブログを投稿・管理することができるCMSです。<br>
+WordPressと同様のシステムを開発したく、下記の機能を実装しています。
+* カテゴリー機能と検索機能
+* 最新記事 / ピックアップ記事 / 関連記事 / 前後の記事
+* SNSシェアボタン
+* お問い合わせ
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 開発の背景
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+いつも仕事でCMSを使用して、サイトを構築しています。<br>
+主要なCMSは非常に便利で、とても簡単にサイトを作成することができます。<br>
+主に使用しているWordPressは普通のサイトだけではなく、<br>
+ブログやECサイト、会員制など無料で大体のサイトを制作できます。
 
-## Learning Laravel
+ただ、いくつものをサイトを作って思いました。<br>
+**オリジナルのCMSを作ってみたい**<br>
+**そのサイトに必要な機能だけを実装したCMSを作りたい**<br>
+**ECや会員制などどんなサイトでも応用できるCMSを作りたい**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+シンプル・軽量・応用力などいくつものパターンのCMSを作りたくなりました。<br>
+こうした背景から、今回は、ブログとお問い合わせというシンプルなCMSを開発しました。
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 使用技術
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* __フロントエンド__
+  * HTML
+  * CSS/SASS
+  * TailwindCSS
+  * jQuery
 
-## Laravel Sponsors
+* __バックエンド__
+  * PHP 8.2.4
+  * Laravel 10.28.0
+  * Composer 2.5.1
+  * Laravel-Admin
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+* __インフラ__
+  * XAMPP 8.0.28
+  * Apache 2.4.52
+  * MariaDB 10.4.22
+  * ロリポップ
 
-### Premium Partners
+* __その他使用ツール__
+  * Visual Studio Code
+  * Git/GitHub
+  * draw.io
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## アプリのイメージ
 
-## Contributing
+| トップ【ユーザー】 | 記事詳細【ユーザー】 |
+| ---- | ---- |
+| ![トップ【ユーザー】](/docs/img/info01.png) | ![記事詳細【ユーザー】](/docs/img/info02.png) |
+| トップページは記事の一覧ページです。 | 記事の詳細ページです。 |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+| お問い合わせ【ユーザー】 | ログイン【管理者】 |
+| ---- | ---- |
+| ![お問い合わせ【ユーザー】](/docs/img/info03.png) | ![ログイン【管理者】](/docs/img/info04.png) |
+| 確認と完了ページ付きお問い合わせページです。 | Laravel-adminを使用した管理画面です。 |
 
-## Code of Conduct
+| 記事の作成【管理者】 | カテゴリーの作成【管理者】 |
+| ---- | ---- |
+| ![記事の作成](/docs/img/info05.png) | ![カテゴリーの作成](/docs/img/info06.png) |
+| 記事の作成・編集できるページです。 | 記事のカテゴリーを作成・編集できるページです。 |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+| お問い合わせ確認【管理者】 |  |
+| ---- | ---- |
+| ![記事の作成](/docs/img/info07.png) |  |
+| お問い合わせ情報を確認できるページです。 |  |
 
-## Security Vulnerabilities
+| トップ画面 |　ログイン画面 |
+| ---- | ---- |
+| ![Top画面](/docs/img/app-view/welcome_1.1.png) | ![ログイン画面](/docs/img/app-view/login_1.1.png) |
+| 登録せずにサービスをお試しいただくためのトライアル機能を実装しました。 | ログインIDとパスワードでの認証機能を実装しました。 |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+| 事業者選択画面 |　請求書作成画面 |
+| ---- | ---- |
+| ![事業者選択画面](/docs/img/app-view/select-business_1.1.png) | ![請求書作成画面](/docs/img/app-view/create-invoice_1.1.png) |
+| 登録済みの複数の事業者の中から、請求書を作成したい事業者を選択する機能を実装しました。 | 請求書の作成機能・マスタデータの呼び出し機能・税率変更機能・税率別内訳の計算機能、合計金額の計算機能を実装しました。 |
 
-## License
+| 請求書詳細画面 |　PDF出力画面 |
+| ---- | ---- |
+| ![請求書詳細画面](/docs/img/app-view/invoice-detail_1.1.png) | ![　PDF出力画面](/docs/img/app-view/print-invoice_1.1.png) |
+| 請求書データの表示機能を実装しました。 | PDFでの請求書発行機能を実装しました。 |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+| 登録するマスタの選択画面 |　マスタの登録画面 |
+| ---- | ---- |
+| ![請求書詳細画面](/docs/img/app-view/select-master_1.1.png) | ![　PDF出力画面](/docs/img/app-view/master-register-form_1.1.png) |
+| 事業者情報と備考欄情報のマスタ登録機能を実装しました。 | マスタ情報の登録をすることで、請求書の作成時にデータを呼び出すことができます。 |
+
+
+## インフラ構成図
+
+![AWS_Diagram](https://user-images.githubusercontent.com/58071320/98756993-eed4d600-240e-11eb-8a3a-141290e77fc9.png)
+
+## ER図
+
+![AWS_Diagram](https://user-images.githubusercontent.com/58071320/98756993-eed4d600-240e-11eb-8a3a-141290e77fc9.png)
+
+## 機能一覧
+
+### 管理画面（Laravel-Admin）
+* __一管理者関連__<br>
+  アカウント新規登録、プロフィール編集機能、アカウント削除<br>
+  パスワード変更<br>
+  ログイン、ログアウト機能
+
+* __記事の投稿機能（CRUD処理）__<br>
+  記事の作成・削除・表示
+
+* __記事のカテゴリー（CRUD処理）__<br>
+  記事のカテゴリーの作成・削除・表示
+
+* __お問い合わせデータ__<br>
+  ユーザーからのお問い合わせデータの表示
+
+### フロント側
+* __カテゴリー検索__
+* __投稿検索__
+* __最新記事 / ピックアップ記事 / 関連記事 / 前後の記事__
+* __お問い合わせ__
+
+## 今後追加したい機能
+* タグ機能
+* 年月アーカイブ
+* コメント機能
+* 予約投稿機能
+* 会員制ブログ
